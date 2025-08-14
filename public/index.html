@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSphere - A Modern Blogging Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .read-more::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.3s ease;
+        }
+        
+        .read-more:hover::after {
+            margin-left: 10px;
+        }
+        
+        .tag {
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background-color: #4f46e5;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                    </svg>
+                    <h1 class="text-xl font-bold text-gray-800">BlogSphere</h1>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-indigo-600 font-medium">Home</a>
+                    <a href="#articles" class="text-gray-600 hover:text-indigo-600 transition">Articles</a>
+                    <a href="#about" class="text-gray-600 hover:text-indigo-600 transition">About</a>
+                    <a href="#contact" class="text-gray-600 hover:text-indigo-600 transition">Contact</a>
+                </nav>
+                <button class="md:hidden focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-4">Welcome to Your <span class="text-indigo-600">Perfect</span> Reading Space</h1>
+                    <p class="text-lg text-gray-600 mb-8">Discover thought-provoking articles, tutorials, and insights across various topics that matter to you.</p>
+                    <a href="#articles" class="inline-block px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-300">Explore Articles</a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2f807ad2-018e-4488-bd28-fd36df02caa5.png" alt="Woman sitting in a cozy reading nook with laptop and books, sunlight streaming through window" class="rounded-lg shadow-xl" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Posts -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Featured Posts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Post 1 -->
+                <div class="post-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5020fe22-2c65-461a-9bee-70324170d1b6.png" alt="Abstract digital art representing technology concepts with vibrant colors and geometric shapes" class="w-full h-48 object-cover" />
+                        <span class="absolute top-4 right-4 bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full font-medium">Technology</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>May 15, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">The Future of Web Development in 2023</h3>
+                        <p class="text-gray-600 mb-4">Exploring the emerging technologies and frameworks that will shape the web development landscape this year.</p>
+                        <a href="#" class="read-more text-indigo-600 font-medium inline-flex items-center">Read more</a>
+                    </div>
+                </div>
+                
+                <!-- Post 2 -->
+                <div class="post-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/247b82e6-cb8b-4418-ac03-ef7f8ed7d887.png" alt="Hands typing on laptop keyboard with product management dashboard visible on screen" class="w-full h-48 object-cover" />
+                        <span class="absolute top-4 right-4 bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium">Productivity</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>June 2, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">10 Productivity Hacks for Developers</h3>
+                        <p class="text-gray-600 mb-4">Simple yet effective techniques to help developers work smarter and more efficiently every day.</p>
+                        <a href="#" class="read-more text-indigo-600 font-medium inline-flex items-center">Read more</a>
+                    </div>
+                </div>
+                
+                <!-- Post 3 -->
+                <div class="post-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4bf160f0-775c-4adc-9445-9047ea157b4a.png" alt="Creative workspace with sketches and design tools on desk with notebook open showing UI sketches" class="w-full h-48 object-cover" />
+                        <span class="absolute top-4 right-4 bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full font-medium">Design</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>June 10, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>12 min read</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">UX Design Principles You Should Know</h3>
+                        <p class="text-gray-600 mb-4">Fundamental principles that every designer should understand to create intuitive and user-friendly interfaces.</p>
+                        <a href="#" class="read-more text-indigo-600 font-medium inline-flex items-center">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Articles -->
+    <section id="articles" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Recent Articles</h2>
+            
+            <!-- Category Filters -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="tag px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">All</button>
+                <button class="tag px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium">Technology</button>
+                <button class="tag px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium">Design</button>
+                <button class="tag px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium">Productivity</button>
+                <button class="tag px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium">Career</button>
+            </div>
+            
+            <!-- Articles Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8de3b5b-05e6-42c1-9e26-cf4be6e65b4b.png" alt="Laptop screen showing JavaScript code with coffee cup beside it" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>June 18, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>10 min read</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Modern JavaScript Techniques for Clean Code</h3>
+                        <p class="text-gray-600 mb-4">Learn how to write cleaner, more maintainable JavaScript code using modern ES6+ features and patterns.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="read-more text-indigo-600 font-medium inline-flex items-center">Read more</a>
+                            <span class="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/80d70bdf-3746-45e0-8e97-cfa9f7b9565e.png" alt="Mobile phones displaying different screen sizes with responsive design layouts" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>June 15, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>7 min read</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Responsive Design Patterns for 2023</h3>
+                        <p class="text-gray-600 mb-4">Explore the latest responsive design patterns and techniques to create flawless experiences across devices.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="read-more text-indigo-600 font-medium inline-flex items-center">Read more</a>
+                            <span class="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/211eab36-f0b6-41ce-89b2-aa9a72b6465d.png" alt="Developer pair programming with one pointing at computer screen" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>June 12, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>9 min read</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Collaboration Tools for Remote Development Teams</h3>
+                        <p class="text-gray-600 mb-4">Best tools and practices for remote development teams to collaborate effectively across different time zones.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="read-more text-indigo-600 font-medium inline-flex items-center">Read more</a>
+                            <span class="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full">Productivity</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/43a27cb6-34d4-400f-9e1e-4a3043effd0c.png" alt="Graph showing performance metrics improving over time" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>June 8, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>15 min read</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing React Application Performance</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive guide to identifying and fixing performance bottlenecks in React applications.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="read-more text-indigo-600 font-medium inline-flex items-center">Read more</a>
+                            <span class="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full">React</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0036286b-ed6f-41aa-ab74-9bbe215e1e56.png" alt="Developer with VR headset experiencing virtual reality environment" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>June 5, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>11 min read</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">The Rise of WebXR and Immersive Experiences</h3>
+                        <p class="text-gray-600 mb-4">How WebXR is changing the landscape of web development and creating new opportunities for immersive experiences.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="read-more text-indigo-600 font-medium inline-flex items-center">Read more</a>
+                            <span class="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full">WebXR</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 6 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/920ced2f-12fe-4330-a68e-3b1ebea06cdd.png" alt="Brain illustration with colorful connections representing neural networks" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>May 28, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>14 min read</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Understanding AI Concepts for Developers</h3>
+                        <p class="text-gray-600 mb-4">Fundamental artificial intelligence concepts that every developer should understand in today's tech landscape.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="read-more text-indigo-600 font-medium inline-flex items-center">Read more</a>
+                            <span class="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full">AI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-100 transition duration-300">
+                    Load More Articles
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3de631b0-512d-444f-9a85-55419410851b.png" alt="Diverse team of creative professionals working together in a modern office space" class="rounded-lg shadow-lg" />
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">About BlogSphere</h2>
+                    <p class="text-gray-600 mb-4">BlogSphere was founded in 2020 with a simple mission: to create a platform where passionate writers and curious readers could come together to share knowledge and ideas.</p>
+                    <p class="text-gray-600 mb-6">Our team of expert writers, developers, and designers work tirelessly to bring you high-quality content that educates, inspires, and sparks meaningful conversations.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800">Fast & Insightful</h4>
+                                <p class="text-gray-600">Get quick access to knowledge that matters with our curated content.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800">Diverse Topics</h4>
+                                <p class="text-gray-600">From tech to lifestyle, we cover a wide range of subjects to satisfy every curiosity.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                            </svg>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800">Community Driven</h4>
+                                <p class="text-gray-600">Join a community of like-minded individuals eager to learn and share.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-indigo-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+            <p class="text-indigo-100 max-w-2xl mx-auto mb-8">Subscribe to our newsletter to receive the latest articles and updates directly in your inbox.</p>
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-300 text-gray-800" />
+                <button type="submit" class="px-6 py-3 bg-white text-indigo-600 font-medium rounded-lg hover:bg-indigo-50 transition duration-300">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Get In Touch</h2>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600 mr-4 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                                <div>
+                                    <h4 class="font-medium text-gray-700">Phone</h4>
+                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600 mr-4 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                <div>
+                                    <h4 class="font-medium text-gray-700">Email</h4>
+                                    <p class="text-gray-600">hello@blogsphere.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600 mr-4 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                <div>
+                                    <h4 class="font-medium text-gray-700">Office</h4>
+                                    <p class="text-gray-600">1234 Tech Street, San Francisco, CA 94107</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <form class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Send Us a Message</h3>
+                        <div class="mb-6">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition" />
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition" />
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition" />
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-300">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                        <h3 class="text-xl font-bold">BlogSphere</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6">A modern blogging platform for creators and readers who value quality content and thoughtful discussions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#articles" class="text-gray-400 hover:text-white transition">Articles</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Technology</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Productivity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Career</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2023 BlogSphere. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-indigo-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-indigo-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Mobile Menu Toggle (would need additional HTML and CSS to fully implement)
+        const mobileMenuButton = document.querySelector('header button');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'hidden md:hidden fixed inset-0 bg-white z-40 p-6 transition-all duration-300 ease-in-out';
+        mobileMenu.innerHTML = `
+            <div class="flex justify-end mb-8">
+                <button class="close-menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-6">
+                <a href="#" class="text-2xl font-medium text-gray-800 hover:text-indigo-600">Home</a>
+                <a href="#articles" class="text-2xl font-medium text-gray-800 hover:text-indigo-600">Articles</a>
+                <a href="#about" class="text-2xl font-medium text-gray-800 hover:text-indigo-600">About</a>
+                <a href="#contact" class="text-2xl font-medium text-gray-800 hover:text-indigo-600">Contact</a>
+            </nav>
+        `;
+        document.body.appendChild(mobileMenu);
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                mobileMenu.classList.add('opacity-100');
+            }, 10);
+        });
+        
+        mobileMenu.querySelector('.close-menu').addEventListener('click', () => {
+            mobileMenu.classList.remove('opacity-100');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        });
+        
+        // Category Filtering
+        const filterButtons = document.querySelectorAll('.tag');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-indigo-100', 'text-indigo-800');
+                    btn.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                button.classList.remove('bg-gray-200', 'text-gray-700');
+                button.classList.add('bg-indigo-100', 'text-indigo-800');
+                
+                // In a real implementation, this would filter the articles
+                // console.log(`Filtering by: ${button.textContent}`);
+            });
+        });
+        
+            // Newsletter Form Submission
+    const newsletterForm = document.querySelector('section.bg-indigo-600 form');
+    newsletterForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('input[type="email"]').value.trim();
+        const res = await fetch('/api/newsletter', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        const data = await res.json();
+        newsletterForm.innerHTML = `<p class="text-indigo-100 text-lg">${data.message || data.error}</p>`;
+    });
+
+    // Contact Form Submission
+    const contactForm = document.querySelector('section#contact form');
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const payload = {
+            name: contactForm.querySelector('#name').value.trim(),
+            email: contactForm.querySelector('#email').value.trim(),
+            subject: contactForm.querySelector('#subject').value.trim(),
+            message: contactForm.querySelector('#message').value.trim(),
+        };
+        const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        contactForm.innerHTML = `<p class="text-gray-700 text-lg">${data.message || data.error}</p>`;
+    });
+
+    </script>
+</body>
+</html>
+
