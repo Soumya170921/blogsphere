@@ -43,7 +43,7 @@ const Newsletter = mongoose.model("Newsletter", NewsletterSchema);
 const Contact = mongoose.model("Contact", ContactSchema);
 
 // Static serve
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "docs")));
 
 // Routes
 app.post("/api/newsletter", async (req, res) => {
@@ -75,5 +75,5 @@ app.get("/api/health", (_req, res) => res.json({ ok: true }));
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(` Server running at http://localhost:${PORT}`);
 });
